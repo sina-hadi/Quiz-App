@@ -81,7 +81,7 @@ class MainActivity2 : AppCompatActivity() , View.OnClickListener{
         defaultOptionView()
 
         progressbar.progress = mCurrentPosition
-//        tv_progress.text = "$mCurrentPosition/${progressbar.max}"
+        // ADD THIS LINE AND DELETE UPPER LINE
         tv_quesion.text = question!!.question
         iv_image.setImageResource(question.image)
         tv_option_one.text = question.optionOne
