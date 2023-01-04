@@ -4,23 +4,25 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_quiz"
+        android:label="@string/quizappname"
+        android:roundIcon="@mipmap/ic_quiz_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsGo">
         <activity
-            android:name=".MainActivity3"
+            android:name=".FinishActivity"
+            android:noHistory="true"
             android:exported="false" />
         <activity
-            android:name=".MainActivity2"
+            android:name=".QuizActivity"
             android:exported="false"
-            android:screenOrientation="portrait"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".MainActivity"
+            android:name=".LogInActivity"
             android:exported="true"
-            android:screenOrientation="portrait"
+            android:screenOrientation="fullSensor"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

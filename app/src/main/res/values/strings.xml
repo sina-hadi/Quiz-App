@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">LetsGo</string>
+    <string name="restart">RESTART</string>
+    <string name="what_country_does_this_flag_belong_to">What Country does this flag belong to?</string>
+    <string name="_0_10">0/10</string>
+    <string name="submit">Submit</string>
+    <string name="quizapp">QuizApp</string>
+    <string name="welcome">Welcome</string>
+    <string name="please_enter_your_name">Please enter your name</string>
+    <string name="name">Name</string>
+    <string name="start">Start</string>
+    <string name="congratulations">Congratulations</string>
+    <string name="quizappname">QuizApp</string>
 </resources>
