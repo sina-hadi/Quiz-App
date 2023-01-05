@@ -36,6 +36,6 @@ class LogInActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         finishAffinity()
-        exitProcess(0)
+//        exitProcess(0)
     }
 }

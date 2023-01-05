@@ -9,27 +9,36 @@
         android:roundIcon="@mipmap/ic_quiz_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LetsGo">
+
         <activity
-            android:name=".FinishActivity"
-            android:noHistory="true"
-            android:exported="false" />
-        <activity
-            android:name=".QuizActivity"
-            android:exported="false"
-            android:noHistory="true"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustResize" />
-        <activity
-            android:name=".LogInActivity"
+            android:name=".SplashScreenActivity"
             android:exported="true"
-            android:screenOrientation="fullSensor"
-            android:windowSoftInputMode="adjustResize">
+            android:theme="@style/NoActionBarTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".FinishActivity"
+            android:exported="false"
+            android:noHistory="true" />
+
+        <activity
+            android:name=".QuizActivity"
+            android:exported="false"
+            android:noHistory="true"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustResize" />
+
+        <activity
+            android:name=".LogInActivity"
+            android:exported="true"
+            android:screenOrientation="fullSensor"
+            android:windowSoftInputMode="adjustResize" />
+
     </application>
 
 </manifest>

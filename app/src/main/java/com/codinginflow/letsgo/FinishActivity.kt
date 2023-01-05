@@ -4,7 +4,6 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import com.codinginflow.letsgo.databinding.ActivityFinishBinding
 
 class FinishActivity : AppCompatActivity() {
@@ -24,7 +23,7 @@ class FinishActivity : AppCompatActivity() {
         val myName = intent.getStringExtra("myName")
 
         binding.textView.text = "${myPoint.toString()} / 10"
-        binding.textView2.text = "Congratulations $myName"
+        binding.textView2.text = "Congratulations\n$myName"
 
         binding.btnRestart.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)
@@ -34,6 +33,6 @@ class FinishActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        Log.e("BackPressed", "TRUE")
+        finishAffinity()
     }
 }
