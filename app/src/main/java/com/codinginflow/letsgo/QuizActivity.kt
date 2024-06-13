@@ -7,6 +7,8 @@ import android.graphics.Typeface
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.view.animation.Animation
+import android.view.animation.AnimationUtils
 import android.widget.TextView
 import android.widget.Toast
 import androidx.core.content.ContextCompat
@@ -78,7 +80,7 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
                     isSubmit = true
                     binding.btnSubmit.text = "Submit"
                     mSelectedOptionPosition = 0
-                    setQuestion()
+                    animationQuestion()
                 } else {
                     onClick(binding.btnSubmit)
                     isSubmit = false
@@ -90,13 +92,8 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    @SuppressLint("SetTextI18n")
-    private fun setQuestion() {
-
+    private fun setQuestion(){
         val question = mQuestionList!![mCurrentPosition - 1]
-
-        defaultOptionView()
-
         binding.progressbar.progress = mCurrentPosition
         binding.tvProgress.text = "$mCurrentPosition / 10"
         binding.tvQuestion.text = question.question
@@ -106,6 +103,48 @@ class QuizActivity : AppCompatActivity(), View.OnClickListener {
         binding.tvOptionThree.text = question.optionThree
         binding.tvOptionFour.text = question.optionFour
         correctAnswer = question.correctAnswer
+    }
+
+    private fun animationQuestion() {
+        val animationFadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in)
+        val animationFadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out)
+
+        binding.linearlayout.startAnimation(animationFadeOut)
+        animationFadeOut.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(p0: Animation?) {
+                enableDisableButton(false)
+            }
+
+            override fun onAnimationEnd(p0: Animation?) {
+                defaultOptionView()
+                setQuestion()
+                binding.linearlayout.startAnimation(animationFadeIn)
+            }
+
+            override fun onAnimationRepeat(p0: Animation?) {}
+        })
+        animationFadeIn.setAnimationListener(object : Animation.AnimationListener {
+            override fun onAnimationStart(p0: Animation?) {}
+
+            override fun onAnimationEnd(p0: Animation?) {
+                enableDisableButton(true)
+            }
+
+            override fun onAnimationRepeat(p0: Animation?) {}
+        })
+    }
+
+    private fun enableDisableButton(state : Boolean) {
+        binding.btnSubmit.isEnabled = state
+        binding.btnSubmit.isClickable = state
+        binding.tvOptionFour.isEnabled = state
+        binding.tvOptionFour.isClickable = state
+        binding.tvOptionThree.isEnabled = state
+        binding.tvOptionThree.isClickable = state
+        binding.tvOptionTwo.isEnabled = state
+        binding.tvOptionTwo.isClickable = state
+        binding.tvOptionOne.isEnabled = state
+        binding.tvOptionOne.isClickable = state
     }
 
 
